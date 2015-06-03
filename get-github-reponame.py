@@ -1,7 +1,10 @@
 import sys
 import requests
-url = "https://api.github.com/users/"+sys.argv[1]+"/repos"
-req = requests.get(url)
+import getpass
+username = sys.argv[1]
+url = "https://api.github.com/users/"+username+"/repos"
+password = getpass.getpass()
+req = requests.get(url, auth=(username, password))
 resp = req.json()
 repolist = []
 with open("repolist-github.txt", 'w+') as f:
