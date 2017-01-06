@@ -25,7 +25,7 @@ def main():
             html_url_list.append(repo.html_url)
 
     clone_choice = raw_input("Do you want to clone via SSH [Y/N] ")
-    if choice == 'y' or choice == 'Y':
+    if clone_choice == 'y' or clone_choice == 'Y':
         print "Initiating Cloning via SSH"
         for url in ssh_url_list:
             os.system("git clone " + url)
@@ -39,6 +39,7 @@ def main():
 if __name__ == '__main__':
     try:
         main()
-    except:
+    except Exception as e:
+        print e
         print "\nQuiting..."
         sys.exit(0)

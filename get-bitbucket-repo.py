@@ -51,15 +51,15 @@ def main():
         html_url_list, ssh_url_list = get_val(response)
 
     clone_choice = raw_input("Do you want to clone via SSH [Y/N] ")
-    if choice == 'y' or choice == 'Y':
+    if clone_choice == 'y' or clone_choice == 'Y':
         print "Initiating Cloning via SSH"
         for url in ssh_url_list:
-            os.system("git clone " + url)
+            os.system("git clone --mirror " + url)
 
     else:
         print "Initiating Cloning via HTTPS"
         for url in html_url_list:
-            os.system("git clone " + url)
+            os.system("git clone --mirror " + url)
 
 
 if __name__ == '__main__':
